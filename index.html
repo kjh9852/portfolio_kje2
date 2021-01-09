@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portfolio</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/reset.css">
+
+    <!-- 웹폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Plaster&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="header">
+                <h2 class="ir_so">포트폴리오</h2>
+                <div class="title">
+                    <p><strong>2020</strong><em>portfolio</em></p>
+                    <p class="name">김정은</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav id="nav">
+        <div class="nav">
+            <h2 class="ir_so">상단메뉴</h2>
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">PORTFOLIO</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about">
+                    <h2>.about</h2>
+                    <div class="profile">
+                        <img src="assets/img/profile.jpg" alt="프로필사진">
+                    </div>
+                    <ul class="introduce">
+                        <li>
+                            <h2>introduce</h2>
+                        </li>
+                        <li>김정은
+                        <li>
+                        <li>2004.08.13</li>
+                        <li>010-7651-9852</li>
+                    </ul>
+                    <ul class="certification">
+                        <li>
+                            <h2>certification</h2>
+                        </li>
+                        <li><span>2019.09</span> GTQ 포토샵 1급</li>
+                        <li><span>2020.01</span> ITQ 엑셀</li>
+                        <li><span>2020.05</span> ITQ 한글</li>
+                        <li><span>2020.05</span> ITQ 인터넷</li>
+                        <li><span>2020.10</span> GTQ 일러스트 2급</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="portfolio">
+                    <h2>.portfolio</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        var size = $(window).height();
+        $(".header").css("height", size + 55);
+        $(".about").css("height", size - 140);
+        $(".portfolio").css("height", size -160);
+
+        var navset = $("#nav").offset();
+        $(window).scroll(function () {
+            if ($(document).scrollTop() >= navset.top) {
+                $("#nav").addClass("fixed");
+            }
+            else {
+                $("#nav").removeClass("fixed");
+            }
+        });
+
+
+        var aboutset = $(".about").offset();
+        $(window).scroll(function () {
+            if ($(document).scrollTop() > aboutset.top - 500) {
+                $(".about").addClass("fadein")
+            }
+        });
+    </script>
+</body>
+
+</html>
