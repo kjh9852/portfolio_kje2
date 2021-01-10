@@ -1,19 +1,26 @@
 @charset "utf-8";
+/* main { scroll-snap-type:y mandatory;   height: 100vh;
+    overflow: scroll;}
+
+.scroll-snap {  position: relative;
+    height: 100vh; scroll-snap-align:start; overflow: auto;} */
 
 /* 레이아웃 */
 #header {position: relative; background: #9ebd96;}
-#nav {position: relative; transition: .3s ease-in-out;}
+#nav {position: fixed; top: 0; width: 100%; z-index: 10;}
 /* #nav::after {position: absolute; content: ''; width: 100%; height: 50px; background: #000; opacity: 0;} */
-#nav.fixed {position: fixed; top: 0; width: 100%; z-index: 10;}
+#nav.fixed {}
 
-.nav { 
-    transform: translateY(-100%); /* normal, hidden state */
-  }
-  #nav:hover .nav{
-    transform: translateY(0); /* when parent is hovered */
-  }
+/* .nav { 
+    transform: translateY(-100%); opacity: 0; /* normal, hidden state */
+  } */
+/* #nav:hover .nav{
+    transform: translateY(0); opacity: 1;/* when parent is hovered */
+  } */
 
-#portfolio {background: #d6c4aa;}
+#about {}
+
+#portfolio {background: #b8a893;}
 
 /* 컨테이너  */
 .container {position: relative; width: 1100px; margin: 0 auto; /*background: rgba(0,0,0,0.5);*/}
@@ -34,15 +41,16 @@
 /* nav */
 .nav {background: #10311ba4; transition: .3s ease-in-out;}
 .nav > ul {overflow: hidden; width: 600px; margin: 0 auto;}
-.nav > ul > li {position: relative; float: left; width: 200px; text-align: center; vertical-align: middle;}
+.nav > ul > li {position: relative; float: left; width: 160px; padding: 10px 20px; text-align: center; vertical-align: middle;}
+.nav > ul > li.active a {color: #8eec76;}
 /* .nav > ul > li::before {position: absolute; content: ''; width: 1px; height: 25px; background: #fff; top: 14px; left: 0;} */
 /* .nav > ul> li:nth-child(3):after {position: absolute; content: ''; width: 1px; height: 25px; background: #fff; top: 14px; right: 0;} */
-.nav > ul > li > a {display: block; color: #ffffff; font-size: 22px; padding: 10px 20px; transition: .3s ease-in-out;}
+.nav > ul > li > a {color: #ffffff; font-size: 22px;box-sizing: border-box; transition: .3s ease-in-out;}
 .nav > ul > li > a:hover {color: #8eec76;}
 
 /* about */
 .about {width: 100%; height: 570px; padding: 80px 0; font-size: 0; opacity: 0;}
-.about h2 {text-transform: uppercase; font-size: 42px;}
+.about h2 {text-transform: uppercase; font-size: 50px;}
 .fadein { animation: move .8s ease-out; 
     animation-fill-mode: both;
     -moz-animation-fill-mode: both;
@@ -50,13 +58,60 @@
     -o-animation-fill-mode: both;}
 .profile {position: relative; width: 200px; height: 250px; display: inline-block; background: #000; margin: 100px 0 0 20px; font-size: 0;}
 .profile::after {position: absolute; content: ''; display: block; width: 30px; height: 1px; background: #000; bottom: -30px; left: 83px;}
-.introduce {position: relative; display: inline-block; margin-left: 208px; top: -118px;}
+.about_me {position: relative; top: 91px; display: inline-block; margin-left: 180px;}
+.introduce {margin-bottom: 30px;}
 .introduce h2 {position: relative; text-transform: uppercase; font-size: 24px; margin-bottom: 20px;}
 .introduce h2::after {position: absolute; content: ''; width: 20px; height: 1px; background: #000; bottom: -12px; left: 0;}
-.introduce li {font-size: 16px; line-height: 28px;}
-.certification {position: relative; display: inline-block; left: -132px; top: 150px; font-size: 16px;}
+.introduce li {font-size: 16px; margin-bottom: 5px;}
+.introduce li:nth-child(2) {font-weight: bold;}
+.certification {font-size: 16px;}
 .certification h2 {position: relative; text-transform: uppercase; font-size: 24px; margin-bottom: 20px;}
 .certification h2::after {position: absolute; content: ''; width: 20px; height: 1px; background: #000; bottom: -12px; left: 0;}
+.certification li {margin-bottom: 5px;}
+
+/* portfolio */
+.portfolio {}
+.portfolio article {position: relative; width: 300px; height: 300px; text-align: center; overflow: hidden; margin-right: 5%; background: rgb(121, 1, 111); border-radius: 50%;  transition: .3s ease-in-out; cursor: pointer;}
+.portfolio article .text {position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; justify-content: center; align-items: center; transform: translateY(-80%); opacity: 0; transition: .3s ease; z-index: 1;}
+.portfolio article:hover .text {transform: translateY(0%); opacity: 1;}
+.portfolio article strong {text-transform: uppercase; color: #fff; font-size: 24px;}
+.portfolio article a {display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; cursor: pointer; z-index: 5;}
+.portfolio article:hover:after {background: #000; opacity: .5; }
+.portfolio article:after {position: absolute; content: ''; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; transition: all .3s ease-in-out;}
+.portfolio article.school {margin-right: 0;}
+.circle {width: 100%; height: 650px; display: flex; align-items: center; justify-content: center;}
+
+.slider_1 {position: fixed; top: 7%; left: 0; right: 0; margin: 0 auto; width: 1200px; height: 800px;  z-index: 2; display: none;}
+.slider_1::after {position: fixed; top: 0; left: 0; right: 0; content: ''; width: 100%; height: 100%; background: #000; opacity: .5; z-index: -1;}
+.slider_2 {position: fixed; top: 7%; left: 0; right: 0; margin: 0 auto; width: 1200px; height: 800px;  z-index: 2; display: none;}
+.slider_2::after {position: fixed; top: 0; left: 0; right: 0; content: ''; width: 100%; height: 100%; background: #000; opacity: .5; z-index: -1;}
+.slider_3 {position: fixed; top: 7%; left: 0; right: 0; margin: 0 auto; width: 1200px; height: 800px;  z-index: 2; display: none;}
+.slider_3::after {position: fixed; top: 0; left: 0; right: 0; content: ''; width: 100%; height: 100%; background: #000; opacity: .5; z-index: -1;}
+.cha_slider {overflow: hidden; width: 100%; height: 100%; z-index: 2;}
+.cha_slider img {width: auto; max-height: 800px; margin: 0 auto;}
+.con_slider {overflow: hidden; width: 100%; height: 100%;}
+.con_slider img {width: auto; max-height: 800px; margin: 0 auto;}
+.sch_slider {overflow: hidden; width: 100%; height: 100%;}
+.sch_slider img {width: auto; max-height: 800px; margin: 0 auto;}
+
+.slick-prev {background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E") no-repeat;
+    position: absolute;
+    top: 50%; left: -45px; width: 28px; height: 46px;
+    text-indent: -9999px; z-index: 10;
+}
+.slick-next {background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E") no-repeat;
+    position: absolute;
+    top: 50%; right: -45px; width: 28px; height: 46px;
+    text-indent: -9999px; z-index: 10;
+}
+.slick-dots {position: absolute; display: inline-block; text-align: center; bottom:-20px; left: 0; right: 0;}
+.slick-dots li {display: inline-block; margin-right: 5px;}
+.slick-dots li.slick-active button {background: #000;}
+.slick-dots li button {font-size: 0; width: 15px; height: 15px;  background: #fff; border-radius: 50%;}
+.close {position: absolute; top: 8px; right: -50px; width: 40px; height: 40px; background: url(img/close.svg) no-repeat center center; background-size: 40px 40px; cursor: pointer; z-index: 6;}
+.close2 {position: absolute; top: 8px; right: -50px; width: 40px; height: 40px; background: url(img/close.svg) no-repeat center center; background-size: 40px 40px; cursor: pointer; z-index: 6;}
+.close3 {position: absolute; top: 8px; right: -50px; width: 40px; height: 40px; background: url(img/close.svg) no-repeat center center; background-size: 40px 40px; cursor: pointer; z-index: 6;}
+.close a {}
 
 /* about 애니메이션 */
 @keyframes move {
@@ -78,8 +133,67 @@
 
 /* portfolio */
 .portfolio {width: 100%; padding: 80px 0; font-size: 0;}
-.portfolio h2 {text-transform: uppercase; font-size: 42px;}
+.portfolio h2 {text-transform: uppercase; font-size: 50px;}
 
 @media (max-width: 1280px) {
     .container {width: 100%;}
+}
+
+@media (max-width: 1160px) {
+    .portfolio article {width: 200px; height: 200px;}
+    .portfolio article strong {font-size: 16px;}
+    .slider_1 , .slider_2, .slider_3 {top: 20%; width: 650px; height: 500px;}
+    .cha_slider img, .con_slider img, .sch_slider img  {max-height: 500px;}
+    .close, .close2 .close3 {right: -42px; top: 1px;} 
+}
+
+@media (max-width: 768px) {
+    .row {padding: 0 35px;}
+    .title { transform: translate(0%,24%);}
+    .title > p > strong {font-size: 62px;}
+    .title > p > em {font-size: 42px;}
+    .title > p:nth-child(1) {line-height: 55px;}
+    .about {padding: 50px 0;}
+    .about > h2 {font-size: 32px;}
+    .about_me {top: 20px; margin-left: 20%;}
+    .profile {top : -40px;}
+    .introduce h2 {font-size: 18px;}
+    .introduce li {font-size: 14px;}
+    .certification {font-size: 14px;}
+    .certification h2 {font-size: 18px;}
+    .portfolio {padding: 50px 0;}
+    .portfolio h2 {font-size: 32px;}
+    .circle {display: block; margin-top: 50px; height: auto;}
+    .portfolio article {width: 100%; height: 155px; border-radius: 0; margin-bottom: 20px; margin-right: 0;}
+    .portfolio article:after {border-radius: 0;}
+
+    .slider_1 , .slider_2, .slider_3 {top: 20%; width: 500px; height: 400px;}
+    .cha_slider img, .con_slider img, .sch_slider img  {max-height: 400px;}
+}
+
+@media (max-width: 600px) {
+    .about {padding: 15px 0;}
+    .about > h2 {text-align: center; margin-bottom: 10px;}
+    .profile  { top:-80px; width: 140px; height: 180px; display: inline-block;}
+    .profile::after {display: none;}
+    .about_me {display: inline-block; top: 32px; left: 45px; bottom: 0; margin-left: 0; margin: 0 auto;}
+    .introduce {margin-right: 20px; margin-bottom: 0;}
+    .introduce h2::after {display: none;}
+    .certification h2::after {display: none;}
+    .portfolio h2 {text-align: center;}
+    .slider_1 , .slider_2, .slider_3 {top: 20%; width: 300px; height: 360px; margin: 0 auto;}
+    .cha_slider img, .con_slider img, .sch_slider img  {max-height: 360px;}
+}
+@media (max-width: 430px) {
+    .row {padding: 0 10px;}
+    .about > h2 {font-size: 24px;}
+    .about {height: 540px;}
+    .portfolio h2 {font-size: 24px;}
+    .profile {display: block; margin: 0 auto; top: 10px;}
+    .about_me {display: block; text-align: center; margin: 0 auto; top: 20px; left: 0; width: 90%;}
+    .introduce { margin-bottom: 20px; margin-right: 0;}
+    .introduce h2 {font-size: 14px; margin-bottom: 10px;}
+    .introduce li {font-size: 12px; margin-bottom: 1px;}
+    .certification {font-size: 12px;}
+    .certification h2 {font-size: 14px; margin-bottom: 10px;}
 }
