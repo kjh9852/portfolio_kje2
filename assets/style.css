@@ -172,6 +172,9 @@
 }
 
 @media (max-width: 600px) {
+    .nav > ul {width: 100%; display: flex; align-items: center; justify-content: center;}
+    .nav > ul > li {width: 85px;}
+    .nav > ul > li > a {font-size: 16px;}
     .about {padding: 15px 0;}
     .about > h2 {text-align: center; margin-bottom: 10px;}
     .profile  { top:-80px; width: 140px; height: 180px; display: inline-block;}
