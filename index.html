@@ -155,7 +155,7 @@
         $(".portfolio").css("height", size - 160);
 
         $(window).resize(function () {
-        let wsize = $(window).width();
+            let wsize = $(window).width();
             if (wsize >= 768 - 17) {
                 $(".header").css("height", size + 55);
                 $(".about").css("height", size - 140);
@@ -257,15 +257,16 @@
         });
 
         $(window).scroll(function () {
+            let wsize = $(window).width();
             var wScroll = $(this).scrollTop();
             if (wScroll >= cont.eq(0).offset().top) {
                 nav.removeClass("active");
                 nav.eq(0).addClass("active");
             }
-            if (wScroll >= cont.eq(1).offset().top) {
-                nav.removeClass("active");
-                nav.eq(1).addClass("active");
-            }
+                if (wScroll >= cont.eq(1).offset().top) {
+                    nav.removeClass("active");
+                    nav.eq(1).addClass("active");
+                }
             if (wScroll >= cont.eq(2).offset().top) {
                 nav.removeClass("active");
                 nav.eq(2).addClass("active");

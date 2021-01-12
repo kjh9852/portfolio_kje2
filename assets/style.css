@@ -80,6 +80,9 @@
 .portfolio article:after {position: absolute; content: ''; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; transition: all .3s ease-in-out;}
 .portfolio article.school {margin-right: 0;}
 .circle {width: 100%; height: 650px; display: flex; align-items: center; justify-content: center;}
+.circle .cha {background: url(img/1/dawing.jpg) no-repeat center center; background-size: cover;}
+.circle .contest {background: url(img/2/contest2.gif) no-repeat center center; background-size: cover;}
+.circle .school {background: url(img/학교/school2.gif) no-repeat center center; background-size: cover;}
 
 .slider_1 {position: fixed; top: 7%; left: 0; right: 0; margin: 0 auto; width: 1200px; height: 800px;  z-index: 2; display: none;}
 .slider_1::after {position: fixed; top: 0; left: 0; right: 0; content: ''; width: 100%; height: 100%; background: #000; opacity: .5; z-index: -1;}
